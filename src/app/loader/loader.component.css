@@ -1,0 +1,30 @@
+.backspinner {
+    background: rgba(255,255,255,0.6);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    z-index: 21;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sr-only {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .spinner-border{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    width: 12rem;
+    height: 12rem;
+    vertical-align: text-bottom;
+    
+    background: rgba(255,255,255,0.6);
+  
+  }

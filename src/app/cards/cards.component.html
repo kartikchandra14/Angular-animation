@@ -1,0 +1,87 @@
+<app-loader [mode]="this.mode"></app-loader>
+<div class="flex">
+    Cards Loading With Animation
+</div>
+<div class="flex">
+    <div class="col4" *ngFor="let i of data" >
+        <div class="card paid-card text-left">
+            <div class="clip-img">
+                <img [src]="srcForImage"  class="card-img-top" alt="card image"/>
+
+                <p class="privatebooking text-uppercase" *ngIf="i?.label">
+                    {{ i?.label }}
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="schedule">
+                    <p class="card-text" *ngIf="i?.title">
+                        {{i?.title}}
+                    </p>
+                </div>
+
+                <div class="card-tags text-md-left">
+                    <a   class="tag" *ngFor="let tag of tags">
+                        {{tag}}
+                    </a>
+                </div>
+                <!-- <p class="card-txt-desc" [innerHTML]="i?.metaDescription">
+                
+                </p> -->
+                <div class="card-profile d-block">
+                    <div class="profile-name" >
+                        <span class="profile-img">
+                            <img [src]="srcForImage" alt="profile"/>
+                        </span>
+                        <span class="name">
+                            <span>
+                                {{i?.name }}
+                            </span>
+                                       
+                        </span>
+                    </div>
+                </div>
+                <div class="bestprice-book d-flex justify-content-between align-items-center">
+                    <strong class="best-price" *ngIf="i?.amount">USD {{i?.amount | currency:'':'':'1.2-2'}}</strong>
+                    <a  *ngIf="i?.amount" class="btn" >Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="flex" *ngIf="mode == 'run';">
+    <div class="col4" *ngFor="let i of dataForAnimation" >
+        <div class="card paid-card text-left">
+            <div class="clip-img placeholder">
+                <img [src]=""  class="card-img-top" alt="card image"/>
+                <p class="info">
+                    <img class="watch-icn" src="assets/images/watch-icn.svg" alt="watch"/>
+                    <span class="time">{{ i?.duration }} Mins </span>
+                </p>
+            </div>
+            <div class="card-body ">
+                <div class="schedule placeholder height20px">
+                </div>
+
+                <div class="card-tags text-md-left placeholder height20px">
+
+                </div>
+                <div class="card-profile d-block placeholder">
+                    <div class="profile-name" >
+                        <span class="profile-img ">
+                            <img src="assets/images/default-placeholder.PNG" alt="profile" class="placeholder"/>
+                        </span>
+                        <span class="name placeholder">
+                        
+                        </span>
+                    </div>
+                </div>
+                <div class="bestprice-book d-flex justify-content-between align-items-center placeholder">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center" *ngIf="data?.length == 0 && mode == 'stop'">   
+    No 1:1 session found...
+</div>
